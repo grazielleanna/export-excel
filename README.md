@@ -4,11 +4,39 @@ Library for exporting data to Excel made with React and ViteJS.
 
 ## Installation
 
-If you are usign [yarn](https://github.com/yarnpkg/berry):
-`yarn add react-excel-exporter`
+- If you are usign [yarn](https://github.com/yarnpkg/berry):
+```sh
+yarn add react-excel-exporter
+```
 
-If you are usign [npm](https://www.npmjs.com/):
-`npm install react-excel-exporter`
+- If you are usign [npm](https://www.npmjs.com/):
+```sh
+npm install react-excel-exporter
+```
+
+## ExcelFile Props
+
+| Prop          | Type                | Default    | Required | Description                                       |
+| :------------ | :------------------ | :--------- | :------- | :------------------------------------------------ |
+| filename      | `string`            | `null`     | `true`   | Name of the excel file that will be downloaded    |
+| element       | `ReactNode`         | `null`     | `true`   | Element to download excel file                    |
+| children      | `Array<ExcelSheet>` | `null`     | `true`   | ExcelSheet Represents data                        |
+
+
+### ExcelSheet Props
+
+| Prop     | Type                    | Default | Required | Description        |
+| :------- | :---------------------- | :------ | :------- | :----------------- |
+| name     | `string`                | `null`  | `true`   | Sheet name in file |
+| data     | `array<object>`         | `null`  | `true`   | Excel Sheet data   |
+| children | `ExcelColumn`           | `null`  | `true`   | ExcelColumns       |
+
+### ExcelColumn Props
+
+| Prop     | Type                    | Default | Required | Description                     |
+| :------- | :---------------------- | :------ | :------- | :------------------------------ | 
+| name     | `string`                | `null`  | `true`   | Column name in file             |
+| value    | `string | function`     | `null`  | `true`   | Property name to access value   |
 
 ## Code Example
 
