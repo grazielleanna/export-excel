@@ -1,30 +1,55 @@
-# React + TypeScript + Vite
+# React Excel Exporter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Library for exporting data to Excel made with React and ViteJS.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+If you are usign [yarn](https://github.com/yarnpkg/berry):
+`yarn add react-excel-exporter`
 
-## Expanding the ESLint configuration
+If you are usign [npm](https://www.npmjs.com/):
+`npm install react-excel-exporter`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Code Example
 
-- Configure the top-level `parserOptions` property like this:
+```ts
+import { ExcelFile, ExcelColumn, ExcelSheet } from 'react-excel-exporter'
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
+function App() {
+  return (
+      <ExcelFile
+        element={
+          <button>
+            download
+          </button>
+        }
+        filename="excel-colors"
+      >
+        <ExcelSheet 
+          name="Colors" 
+          data={[
+            {
+              name: 'Blue',
+              is_dark: false,
+            },
+            {
+              name: 'Yellow',
+              is_dark: false
+            },
+            {
+              name: 'Pink',
+              is_dark: false,
+            },
+            {
+              name: 'Black',
+              is_dark: true
+            },
+          ]}
+        >
+          <ExcelColumn label="Name" value="name" />
+          <ExcelColumn label="Color Dark" value={(col) => col.is_dark ? "Yes" : "False"} />
+        </ExcelSheet>
+      </ExcelFile>
+  )
 }
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
