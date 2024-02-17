@@ -11,7 +11,7 @@ export default defineConfig({
     // definimos que nossa build sera no Library Mode
     lib: {
       // referenciamos nosso arquivo de export da lib
-      entry: path.resolve(__dirname, "src/lib/main.js"),
+      entry: path.resolve(__dirname, "src/lib/main.ts"),
       // damos um nome para nossa biblioteca
       // seguindo o name no package.json
       name: "ReactExcelExporter",
