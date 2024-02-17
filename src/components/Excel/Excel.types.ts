@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
 import { ExcelColumn } from "./ExcelColumn";
+import { ExcelSheet } from "./ExcelSheet";
 
-export declare interface ExportExcelInterface {
+declare interface ExportExcelInterface {
     element: ReactNode;
     worksheets: Worksheet[];
     sheetname: string;
@@ -28,7 +29,15 @@ interface ExcelSheetProps {
     children: React.ReactElement<typeof ExcelColumn> | Array<React.ReactElement<typeof ExcelColumn>>;
 }
 
+interface ExcelFileProps {
+    filename: string;
+    children: React.ReactElement<typeof ExcelSheet> | Array<React.ReactElement<typeof ExcelSheet>>;
+    element: ReactNode;
+}
+
 export type {
     ExcelColumnProps,
-    ExcelSheetProps
+    ExcelSheetProps,
+    ExportExcelInterface,
+    ExcelFileProps
 }

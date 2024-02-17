@@ -1,15 +1,10 @@
-import React, { ReactNode, Validator } from "react";
+import React, { Validator } from "react";
 import PropTypes from "prop-types";
 import { saveAs } from 'file-saver';
 import * as ExcelJS from "exceljs";
 
 import { ExcelSheet } from "./ExcelSheet";
-
-interface ExcelFileProps {
-    filename: string;
-    children: React.ReactElement<typeof ExcelSheet> | Array<React.ReactElement<typeof ExcelSheet>>;
-    element: ReactNode;
-}
+import { ExcelFileProps } from "./Excel.types";
 
 const ExcelFile: React.FC<ExcelFileProps> = ({ filename, children, element }) => {
 

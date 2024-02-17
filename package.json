@@ -1,7 +1,7 @@
 {
   "name": "react-excel-exporter",
   "private": false,
-  "version": "1.0.6",
+  "version": "1.0.8",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -18,7 +18,7 @@
     ".": {
       "import": "./dist/react-excel-exporter-lib.es.js",
       "require": "./dist/react-excel-exporter-lib.umd.js",
-      "types": "./dist/components/Excel/index.d.ts"
+      "types": "./dist/lib/main.d.ts"
     }
   },
   "dependencies": {
