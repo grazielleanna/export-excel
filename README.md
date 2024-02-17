@@ -36,7 +36,7 @@ npm install react-excel-exporter
 | Prop     | Type                    | Default | Required | Description                     |
 | :------- | :---------------------- | :------ | :------- | :------------------------------ | 
 | name     | `string`                | `null`  | `true`   | Column name in file             |
-| value    | `string | function`     | `null`  | `true`   | Property name to access value   |
+| value    | `string or function`    | `null`  | `true`   | Property name to access value   |
 
 ## Code Example
 
