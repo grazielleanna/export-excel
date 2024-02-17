@@ -1,58 +1,35 @@
-import { ExportExcel } from "./components/Excel"
+
+import { ExcelFile } from "./components/Excel"
+import { ExcelColumn, ExcelSheet } from "./lib/main"
 
 function App() {
   return (
     <>
-      <ExportExcel
-        worksheets={[
-          {
-            columns: [
-              {
-                label: 'Time',
-                value: 'time'
-              }
-            ],
-            data: [
-              {
-                time: 'Flamengo'
-              },
-              {
-                time: 'Fluminense'
-              },
-            ],
-            name: 'Times'
-          },
-          {
-            columns: [
-              {
-                label: 'Brasileirão',
-                value: 'brasileirao'
-              },
-              {
-                label: 'Libertadores',
-                value: 'libertadores'
-              }
-            ],
-            data: [
-              {
-                brasileirao: 8,
-                libertadores: 3
-              },
-              {
-                brasileirao: 2,
-                libertadores: 1
-              },
-            ],
-            name: 'Campeonatos'
-          },
-        ]}
+      <ExcelFile
         element={
           <button>
-            download sheet
+            download
           </button>
         }
-        sheetname="first-sheet"
-      />
+        filename="excel-cores"
+      >
+        <ExcelSheet name="Cores" data={[
+          {
+            name: 'Azul',
+          },
+          {
+            name: 'Amarelo',
+          },
+          {
+            name: 'Rosa',
+          },
+          {
+            name: 'Preto',
+          },
+        ]}>
+          <ExcelColumn label="Nome" value="name" />
+        </ExcelSheet>
+      </ExcelFile>
     </>
   )
 }
